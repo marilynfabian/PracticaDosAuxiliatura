@@ -36,17 +36,38 @@ function DividirNumeros(){
     document.getElementById('total').innerText = resultado;
 }
 
-function Calcular(){
-    let num1 = document.getElementById('dato1').value
-    let num2 = document.getElementById('dato2').value
-    
-    let resultado = parseInt(num1) / parseInt(num2);
-    console.log("La division es:  " + resultado);
-    document.getElementById('total').innerText = resultado;
+
+function IMC(){
+    let peso = document.getElementById('dato1').value
+    let altura = document.getElementById('dato2').value
+    let mensaje="";
+    if(parseFloat(peso)<18){
+        mensaje="Bajo Peso"
+    }
+    else if(parseFloat(peso)>18 && parseFloat(peso)<24,9){
+        mensaje="Peso Normal"
+    }
+
+    else if(parseFloat(peso)>=25 && parseFloat(peso)<29,9){
+        mensaje="Sobre Peso "
+    }
+
+    else if(parseFloat(peso)>30){
+        mensaje="Obesidad"
+    }
+
+    let resultadoPeso=mensaje;
+    let resultado = parseFloat(peso) / (parseFloat(altura)*parseFloat(altura));
+    console.log(resultadoPeso);
+    console.log("Tu IMC es:  " + resultado);
+    document.getElementById('result').innerText = resultadoPeso;
+    document.getElementById('resultpeso').innerText = resultado;
 }
+
 
 
 sumar.addEventListener('click', SumarNumeros);
 restar.addEventListener('click', RestarNumeros);
 multiplicar.addEventListener('click', MultiplicarNumeros);
 dividir.addEventListener('click', DividirNumeros);
+resultadoImc.addEventListener('click',IMC);
